@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
 import { HomeRepository } from '../domain/home-repository';
-import { WsResponse } from '@shared/models/ws-response.model';
 import { Observable, map } from 'rxjs';
 
 interface ExchangeRateEventResponse {
