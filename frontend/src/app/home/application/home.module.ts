@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '@shared/components/index';
 import { HomeRepository } from '../domain/home-repository';
-import { HomeRepositoryMock } from '../infraestructure/home-repository-mock';
+import { HomeRepositoryImpl } from '../infraestructure/home-repository-impl';
 
 const routes: Routes = [
   {
@@ -15,14 +16,17 @@ const routes: Routes = [
   { path: '', redirectTo: 'accounts', pathMatch: 'full' },
 ];
 
+const config: SocketIoConfig = { url: 'http://localhost:81', options: {} };
+
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
     HeaderComponent,
+    SocketIoModule.forRoot(config),
   ],
   declarations: [HomeComponent],
   providers: [
-    { provide: HomeRepository, useClass: HomeRepositoryMock},
+    { provide: HomeRepository, useClass: HomeRepositoryImpl},
   ],
 })
 export class HomeModule { }
