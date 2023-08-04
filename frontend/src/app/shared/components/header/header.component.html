@@ -1,0 +1,13 @@
+<mat-toolbar class="header">
+    <button class="menu-button" mat-icon-button color="primary" aria-label="Menu button">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="qa-exchange-rate">
+        ₿
+        :
+        {{btcPrice | async | currency : 'USD' : 'symbol' : '1.2-2'}}
+    </span>
+    <button mat-icon-button aria-label="Notifications button">
+        <mat-icon>notifications_none</mat-icon>
+    </button>
+</mat-toolbar>

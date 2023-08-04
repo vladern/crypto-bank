@@ -1,0 +1,22 @@
+<section class="header">
+    <h1 class="title">Accounts</h1>
+    <span class="breadcrumb">Home / Accounts</span>
+</section>
+<section class="body">
+    <app-table 
+        *ngIf="columns.length" 
+        [data]="data" 
+        [columns]="columns" 
+        [rowIsClickable]="true"
+        (rowClicked)="onRowClicked($event)"
+    />
+    <ng-template #btcTemplate let-element="element" let-column="column">
+        <app-balance-template 
+            currency="₿" 
+            [balance]="element[column.key]" 
+            [exchangeRate]="exchangeRate" 
+            exchangeCurrency="USD"
+            [appHighlightChange]="element[column.key]" 
+        />
+    </ng-template>
+</section>

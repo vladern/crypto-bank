@@ -1,0 +1,60 @@
+/* stylelint-disable scss/at-mixin-argumentless-call-parentheses */
+/* stylelint-disable scss/dollar-variable-colon-space-after */
+/* stylelint-disable declaration-block-no-redundant-longhand-properties */
+/* stylelint-disable scss/no-global-function-names */
+@import '@angular/material/theming';
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$app-primary: mat-palette($mat-green);
+$app-accent:  mat-palette($mat-orange);
+$app-warn:    mat-palette($mat-red);
+$app-success: mat-palette($mat-light-green);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Raleway'
+);
+
+// Include the custom typography config in the angular-material-typography mixin
+@include angular-material-typography($custom-typography);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($app-theme);
+
+$primary: map-get($app-theme, primary);
+$accent: map-get($app-theme, accent);
+
+:root {
+  --color-primary: #{mat-color($app-primary)};
+  --color-accent: #{mat-color($app-accent)};
+  --color-warn: #{mat-color($app-warn)};
+  --color-success: #{mat-color($app-success)};
+}
+
+html,
+body {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+* {
+  font-family: Raleway, sans-serif;
+}

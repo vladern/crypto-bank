@@ -1,0 +1,28 @@
+<section class="header">
+    <h1 class="title">Accounts detail</h1>
+    <span class="breadcrumb">Home / Accounts / Details</span>
+</section>
+<section class="body">
+    <section class="detail mat-elevation-z5">
+        <h1>{{accountDetails.name}}</h1>
+        <span class="category">{{accountDetails.category}}</span>
+        <span class="balance">{{accountDetails.balance | number: '1.8-8'}} BTC ({{accountDetails.balance * exchangeRate | currency : 'USD' : 'symbol' : '1.2-2'}})</span>
+        <span class="disclaimer">(includes {{accountDetails.unconfirmedFunds | number}} BTC ({{accountDetails.unconfirmedFunds * exchangeRate | currency : 'USD' : 'symbol' : '1.2-2'}}) of unconfirmed funds)</span>
+        <span class="available-balance">Available balance: {{accountDetails.balance | number}} BTC ({{accountDetails.balance * exchangeRate | currency : 'USD' : 'symbol' : '1.2-2'}})</span>
+    </section>
+    <section>
+        <app-table *ngIf="columns.length" [data]="data" [columns]="columns" />
+        <ng-template #btcTemplate let-element="element" let-column="column">
+            <app-balance-template 
+                currency="₿" 
+                [balance]="element[column.key]" 
+                [exchangeRate]="exchangeRate" 
+                exchangeCurrency="USD"
+                [appHighlightChange]="element[column.key]" 
+            />
+        </ng-template>
+        <ng-template #dateTime let-element="element" let-column="column">
+            {{element[column.key] | date: 'dd/MM/yyyy HH:mm:ss'}}
+        </ng-template>
+    </section>
+</section>

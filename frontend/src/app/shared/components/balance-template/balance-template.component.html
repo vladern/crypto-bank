@@ -1,0 +1,4 @@
+<div class="balance-template">
+    <div *ngIf="balance">{{currency}}{{balance | number:'1.8-8'}}</div>
+    <div>{{balance * exchangeRate | currency:exchangeCurrency:'symbol':'1.2-2'}}</div>
+</div>

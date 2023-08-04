@@ -1,0 +1,11 @@
+:host {
+    table {
+        width: 100%;
+    }
+
+    .is-clickable {
+        border-bottom: 1px solid transparent;
+        border-top: 1px solid transparent;
+        cursor: pointer;
+    }
+}

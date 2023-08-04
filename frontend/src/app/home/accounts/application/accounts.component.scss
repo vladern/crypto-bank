@@ -1,0 +1,34 @@
+:host {
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 0 0 0 1rem;
+
+        .title {
+            font-size: 2.5rem;
+            font-weight: 500;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .breadcrumb {
+            font-size: medium;
+        }
+    }
+
+    .body {
+        margin: 1rem;
+    }
+    
+}
+
+.lower-value {
+    color: var(--color-warn);
+    font-weight: bold;
+}
+
+.higher-value {
+    color: var(--color-success);
+    font-weight: bold;
+}
