@@ -1,9 +1,9 @@
 import { HttpClient } from "@angular/common/http";
-import { AccountsRepository } from "../../domain/accounts-repository";
 import { Observable } from "rxjs";
 import { Account } from "../../domain/account";
 import { Socket } from "ngx-socket-io";
 import { Injectable } from "@angular/core";
+import { AccountsRepository } from "../../domain/account-repository";
 
 @Injectable()
 export class AccountsRepositoryApi implements AccountsRepository {

@@ -14,7 +14,6 @@ export class HighlightChangeDirective implements OnChanges {
   ngOnChanges(changes: any) {
     const prevValue = changes.appHighlightChange.previousValue;
     const currValue = changes.appHighlightChange.currentValue;
-
     if (prevValue < currValue) {
       this.renderer.addClass(this.el.nativeElement, this.higherClassName);
       this.renderer.removeClass(this.el.nativeElement, this.lowerClassName);

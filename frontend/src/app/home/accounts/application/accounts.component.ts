@@ -1,10 +1,10 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { TableColumn } from '@shared/components/table/table.component';
-import { AccountsRepository } from '../domain/accounts-repository';
 import { Subscription } from 'rxjs';
 import { ExchangeRateService } from '@shared/services/exchange-rate.service';
 import { Account } from '../domain/account';
 import { Router } from '@angular/router';
+import { AccountsRepository } from '../domain/account-repository';
 
 @Component({
     selector: 'app-acounts',
@@ -65,7 +65,8 @@ export class AccountsComponent implements OnInit, AfterViewInit, OnDestroy {
         this.subscriptions.push(this.accountsRepository.onSomeAcountChanges().subscribe((account) => {
             const index = this.data.findIndex((data) => data.id === account.id);
             if (index !== -1) {
-                this.data[index] = account;
+                this.data[index].balance = account.balance;
+                this.data[index].availableBalance = account.availableBalance;
                 this.cd.detectChanges();
             }
         }));

@@ -1,0 +1,20 @@
+export const accountTransactions = [
+  { accountId: 1, transactionIds: [1] },
+  { accountId: 2, transactionIds: [2] },
+  { accountId: 3, transactionIds: [3] },
+  { accountId: 4, transactionIds: [4] },
+  { accountId: 5, transactionIds: [5] },
+  { accountId: 6, transactionIds: [6] },
+  { accountId: 7, transactionIds: [7] },
+  { accountId: 8, transactionIds: [8] },
+  { accountId: 9, transactionIds: [9] },
+  { accountId: 1, transactionIds: [10] },
+  { accountId: 1, transactionIds: [11] },
+  { accountId: 1, transactionIds: [12] },
+  { accountId: 1, transactionIds: [13] },
+  { accountId: 1, transactionIds: [14] },
+  { accountId: 1, transactionIds: [15] },
+].map((accountTransaction) => [
+  accountTransaction.accountId,
+  accountTransaction.transactionIds,
+]);

@@ -67,8 +67,12 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit, OnDestroy
 
     private subscribeToTransactionChanges() {
         this.subscriptions.push(this.accountDetailsRepository.onChangeSomeTransactionOf(this.accountDetailsId).subscribe((transaction) => {
-            this.data.push(transaction);
-            this.cd.detectChanges();
+            const transactionIndex = this.data.findIndex((transactionItem) => transactionItem.orderCode === transaction.orderCode);
+            if (transactionIndex !== -1) {
+                this.data[transactionIndex].balance = transaction.balance;
+                this.data[transactionIndex].credit = transaction.credit;
+                this.cd.detectChanges();
+            }
         }));
     }
 
@@ -80,7 +84,7 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     }
 
     private getAllTransactions() {
-        this.subscriptions.push(this.accountDetailsRepository.getAllTransaction(this.accountDetailsId).subscribe((transactions) => {
+        this.subscriptions.push(this.accountDetailsRepository.getAllTransactions(this.accountDetailsId).subscribe((transactions) => {
             this.data = transactions;
             this.cd.detectChanges();
         }));

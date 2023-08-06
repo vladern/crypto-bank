@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AccountsComponent } from './accounts.component';
-import { AccountsRepository } from '../domain/accounts-repository';
 import { ExchangeRateService } from '@shared/services/exchange-rate.service';
 import { BehaviorSubject, of } from 'rxjs';
 import { AccountRepositoryMock } from '../infraestructure/account-repository-mock';
@@ -9,6 +8,7 @@ import { TableComponent } from '@shared/components/table/table.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BalanceTemplateComponent } from '@shared/components/balance-template/balance-template.component';
 import { HighlightChangeDirective } from '@shared/directives/highlight-change-directive/highlight-change.directive';
+import { AccountsRepository } from '../domain/account-repository';
 
 describe('AccountsComponent', () => {
   let component: AccountsComponent;

@@ -27,7 +27,7 @@ const accountDetailsMock = {
 
 @Injectable()
 export class AccountDetailsRepositoryMock extends AccountDetailsRepository {
-    getAllTransaction(accountID: number): Observable<Transaction[]> {
+    getAllTransactions(accountID: number): Observable<Transaction[]> {
         return new Observable((observer) => {
             observer.next(transactionsMocks);
             observer.complete();
