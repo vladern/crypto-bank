@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 import { AccountDetailsService } from '../domain/account-detail.service';
 import { Transaction } from '../domain/transactions';
 import { AccountDetails } from '../domain/account-details.model';
-import { transactionsMocks } from 'src/db/transactions';
-import { accounts } from 'src/db/accounts';
-import { accountTransactions } from 'src/db/account-transactions';
+import { transactionsMocks } from '../../../db/transactions';
+import { accounts } from '../../../db/accounts';
+import { accountTransactions } from '../../../db/account-transactions';
 
 @Injectable()
 export class AccountDetailsMockService extends AccountDetailsService {

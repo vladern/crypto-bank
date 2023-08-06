@@ -67,7 +67,7 @@ describe('AccountDetailsComponent', () => {
                 { provide: AccountDetailsRepository, useValue: {
                     onChangeSomeTransactionOf: ()=> of(mockTransaction),
                     getAccountDetails: ()=> of(mockAccountDetails),
-                    getAllTransaction: ()=> of(mockTransactions)
+                    getAllTransactions: ()=> of(mockTransactions)
                 } }
             ]
         })
