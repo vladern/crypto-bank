@@ -4,7 +4,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '@shared/components/index';
 import { HomeRepository } from '../domain/home-repository';
-import { HomeRepositoryImpl } from '../infraestructure/home-repository-impl';
+import { HomeRepositorySocketIO } from '../infraestructure/home-repository-socket-io/home-repository-socket-io';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const config: SocketIoConfig = { url: 'http://localhost:81', options: {} };
   ],
   declarations: [HomeComponent],
   providers: [
-    { provide: HomeRepository, useClass: HomeRepositoryImpl},
+    { provide: HomeRepository, useClass: HomeRepositorySocketIO},
   ],
 })
 export class HomeModule { }

@@ -1,14 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Socket } from 'ngx-socket-io';
-import { HomeRepository } from '../domain/home-repository';
-import { Observable, map } from 'rxjs';
-
-interface ExchangeRateEventResponse {
-  exchangeRate: number;
-}
+import { HomeRepository } from '../../domain/home-repository';
+import { Observable } from 'rxjs';
 
 @Injectable()
-export class HomeRepositoryImpl extends HomeRepository {
+export class HomeRepositorySocketIO extends HomeRepository {
 
   constructor(private socket: Socket) {
     super();
