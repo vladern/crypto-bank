@@ -1,5 +1,5 @@
 import { CommonModule } from "@angular/common";
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, TemplateRef, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, TemplateRef, ViewChild } from "@angular/core";
 import { MatPaginator, MatPaginatorModule } from "@angular/material/paginator";
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 
@@ -16,7 +16,7 @@ export interface TableColumn {
     standalone: true,
     imports: [MatTableModule, MatPaginatorModule, CommonModule],
 })
-export class TableComponent implements OnInit, AfterViewInit {
+export class TableComponent implements OnInit, OnChanges {
     @Input() data: unknown[] = [];
     @Input() columns: TableColumn[] = [];
     @Input() rowIsClickable = false;
@@ -28,10 +28,10 @@ export class TableComponent implements OnInit, AfterViewInit {
 
     ngOnInit() {
         this.displayedColumns = this.columns.map(column => column.key);
-        this.dataSource = new MatTableDataSource(this.data);
     }
 
-    ngAfterViewInit() {
+    ngOnChanges() {
+        this.dataSource = new MatTableDataSource(this.data);
         this.dataSource.paginator = this.paginator;
     }
 

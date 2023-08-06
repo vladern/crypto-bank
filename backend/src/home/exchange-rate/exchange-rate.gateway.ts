@@ -9,13 +9,14 @@ import { Server } from 'socket.io';
 const EXCHANGE_RATE_TIME_INTERVAL_REFRESH = 30000;
 
 @WebSocketGateway(81, {
-  cors: { origin: '*' },
+  cors: { origin: 'http://localhost:4200' },
 })
 export class ExchangeRateGateway implements OnGatewayInit, OnGatewayConnection {
   @WebSocketServer() server: Server;
 
   afterInit() {
     this.initExchangeRateEmitter();
+    console.log('ExchangeRateGateway initialized');
   }
 
   handleConnection(client: any) {

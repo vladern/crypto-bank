@@ -13,10 +13,10 @@
     <ng-template #btcTemplate let-element="element" let-column="column">
         <app-balance-template 
             currency="₿" 
+            [appHighlightChange]="element[column.key]" 
             [balance]="element[column.key]" 
             [exchangeRate]="exchangeRate" 
             exchangeCurrency="USD"
-            [appHighlightChange]="element[column.key]" 
         />
     </ng-template>
 </section>

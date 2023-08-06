@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ExchangeRateGateway } from './home/exchange-rate/exchange-rate.gateway';
-import { AccountsController } from './home/accounts/aplication/accounts/accounts.controller';
+import { AccountsModule } from './home/accounts/application/accounts.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController, AccountsController],
+  imports: [AccountsModule],
+  controllers: [AppController],
   providers: [AppService, ExchangeRateGateway],
 })
 export class AppModule {}

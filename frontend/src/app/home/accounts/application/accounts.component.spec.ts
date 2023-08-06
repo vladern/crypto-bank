@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AccountsComponent } from './accounts.component';
-import { AccountRepository } from '../domain/account-repository';
+import { AccountsRepository } from '../domain/accounts-repository';
 import { ExchangeRateService } from '@shared/services/exchange-rate.service';
 import { BehaviorSubject, of } from 'rxjs';
 import { AccountRepositoryMock } from '../infraestructure/account-repository-mock';
@@ -13,14 +13,14 @@ import { HighlightChangeDirective } from '@shared/directives/highlight-change-di
 describe('AccountsComponent', () => {
   let component: AccountsComponent;
   let fixture: ComponentFixture<AccountsComponent>;
-  let accountRepository: AccountRepository;
+  let accountRepository: AccountsRepository;
   let exchangeRateService: ExchangeRateService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AccountsComponent ],
       imports: [ HighlightChangeDirective, HttpClientTestingModule, TableComponent, BrowserAnimationsModule, BalanceTemplateComponent ],
-      providers: [ { provide: AccountRepository, useClass: AccountRepositoryMock }, ExchangeRateService ]
+      providers: [ { provide: AccountsRepository, useClass: AccountRepositoryMock }, ExchangeRateService ]
     })
     .compileComponents();
   });
@@ -28,7 +28,7 @@ describe('AccountsComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AccountsComponent);
     component = fixture.componentInstance;
-    accountRepository = TestBed.inject(AccountRepository);
+    accountRepository = TestBed.inject(AccountsRepository);
     exchangeRateService = TestBed.inject(ExchangeRateService);
     fixture.detectChanges();
   });

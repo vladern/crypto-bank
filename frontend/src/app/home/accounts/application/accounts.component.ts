@@ -1,6 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { TableColumn } from '@shared/components/table/table.component';
-import { AccountRepository } from '../domain/account-repository';
+import { AccountsRepository } from '../domain/accounts-repository';
 import { Subscription } from 'rxjs';
 import { ExchangeRateService } from '@shared/services/exchange-rate.service';
 import { Account } from '../domain/account';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./accounts.component.scss']
 })
 export class AccountsComponent implements OnInit, AfterViewInit, OnDestroy {
-    data = [];
+    data: Account[] = [];
     columns: TableColumn[] = [];
     exchangeRate = 0;
     private subscriptions: Subscription[] = [];
@@ -21,7 +21,7 @@ export class AccountsComponent implements OnInit, AfterViewInit, OnDestroy {
     constructor(
         private cd: ChangeDetectorRef,
         private router: Router,
-        private accountsRepository: AccountRepository,
+        private accountsRepository: AccountsRepository,
         private exchangeRateService: ExchangeRateService,
     ) { }
 

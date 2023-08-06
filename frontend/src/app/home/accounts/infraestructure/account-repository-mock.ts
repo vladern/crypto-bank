@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
-import { AccountRepository } from "../domain/account-repository";
+import { AccountsRepository } from "../domain/accounts-repository";
 import { Account } from "../domain/account";
 
 const accounts: Account[] = [
@@ -18,7 +18,7 @@ const accounts: Account[] = [
 ];
 
 @Injectable()
-export class AccountRepositoryMock extends AccountRepository {
+export class AccountRepositoryMock extends AccountsRepository {
     public getAccounts(): Observable<Account[]> {
         return new Observable<Account[]>((observer) => {
             observer.next(accounts);
