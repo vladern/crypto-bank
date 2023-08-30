@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./home/application/home.module').then((m) => m.HomeModule),
+      import('./layout/layout.module').then((m) => m.LayoutModule),
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent },

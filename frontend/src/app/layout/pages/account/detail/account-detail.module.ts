@@ -1,12 +1,12 @@
 import { RouterModule, Routes } from "@angular/router";
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { TableComponent } from "@shared/components/table/table.component";
 import { BalanceTemplateComponent } from "@shared/components/balance-template/balance-template.component";
-import { CommonModule } from "@angular/common";
 import { HighlightChangeDirective } from "@shared/directives/highlight-change-directive/highlight-change.directive";
-import { AccountDetailsComponent } from "./account-detail.component";
-import { AccountDetailsRepository } from "../domain/account-details-repository";
-import { AccountDetailsRepositoryApi } from "../infrastructure/account-details-repository-api/account-details-repository-api";
+import { AccountDetailsComponent } from "./application/account-detail.component";
+import { AccountDetailsRepository } from "./domain/account-details-repository";
+import { AccountDetailsRepositoryMock } from "./infrastructure/account-detail-repository-mock";
 
 const routes: Routes = [
     { path: '', component: AccountDetailsComponent },
@@ -22,6 +22,6 @@ const routes: Routes = [
         RouterModule.forChild(routes),
     ],
     declarations: [AccountDetailsComponent],
-    providers: [{ provide: AccountDetailsRepository, useClass: AccountDetailsRepositoryApi }],
+    providers: [{ provide: AccountDetailsRepository, useClass: AccountDetailsRepositoryMock }],
 })
 export class AccountDetailsModule { }

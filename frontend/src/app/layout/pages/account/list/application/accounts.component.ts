@@ -40,7 +40,7 @@ export class AccountsComponent implements OnInit, AfterViewInit, OnDestroy {
     }
 
     public onRowClicked(row: Account) {
-        this.router.navigate(['home/accounts/detail', row.id]);
+        this.router.navigate(['home/account/detail', row.id]);
     }
 
     private setColumns() {

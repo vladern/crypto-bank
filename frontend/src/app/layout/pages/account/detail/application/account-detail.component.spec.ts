@@ -1,14 +1,14 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AccountDetailsComponent } from './account-detail.component';
-import { ExchangeRateService } from '@shared/services/exchange-rate.service';
-import { ActivatedRoute } from '@angular/router';
-import { AccountDetailsRepository } from '../domain/account-details-repository';
 import { BehaviorSubject, of } from 'rxjs';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableComponent } from '@shared/components/table/table.component';
+import { ExchangeRateService } from '@shared/services/exchange-rate.service';
 import { BalanceTemplateComponent } from '@shared/components/balance-template/balance-template.component';
 import { HighlightChangeDirective } from '@shared/directives/highlight-change-directive/highlight-change.directive';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccountDetailsComponent } from './account-detail.component';
+import { AccountDetailsRepository } from '../domain/account-details-repository';
 const mockTransaction = {
     confirmedDate: new Date(),
     orderID: '789',

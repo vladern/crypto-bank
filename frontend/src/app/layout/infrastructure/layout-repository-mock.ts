@@ -1,9 +1,9 @@
 import { Observable } from "rxjs";
-import { HomeRepository } from "../domain/home-repository";
+import { LayoutRepository } from "../domain/layout-repository";
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class HomeRepositoryMock extends HomeRepository {
+export class LayoutRepositoryMock extends LayoutRepository {
     public getExchangeRate(): Observable<number> {
         return new Observable<number>((observer) => {  
             observer.next(this.getRandomInteger(10000, 12000));

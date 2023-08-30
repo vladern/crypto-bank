@@ -1,18 +1,18 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HomeRepository } from '../domain/home-repository';
+import { LayoutRepository } from '../domain/layout-repository';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { ExchangeRateService } from '@shared/services/exchange-rate.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class LayoutComponent implements OnInit, OnDestroy {
   public btcPrice: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   private homeRepositorySubscription: Subscription;
   constructor(
-    private homeRepository: HomeRepository,
+    private homeRepository: LayoutRepository,
     private exchangeRateService: ExchangeRateService,
   ) { }
 

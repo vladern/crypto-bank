@@ -29,8 +29,10 @@ const accountDetailsMock = {
 export class AccountDetailsRepositoryMock extends AccountDetailsRepository {
     getAllTransactions(accountID: number): Observable<Transaction[]> {
         return new Observable((observer) => {
-            observer.next(transactionsMocks);
-            observer.complete();
+            setTimeout(() => {
+                observer.next(transactionsMocks);
+                observer.complete();
+            }, 100);
         });
     }
     getAccountDetails(accountID: number): Observable<AccountDetails> {

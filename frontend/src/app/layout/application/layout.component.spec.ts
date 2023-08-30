@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { HomeComponent } from './home.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeRepository } from '../domain/home-repository';
-import { HomeRepositoryMock } from '../infraestructure/home-repository-mock';
+import { LayoutRepository } from '../domain/layout-repository';
 import { HeaderComponent } from '@shared/components';
+import { LayoutComponent } from './layout.component';
+import { LayoutRepositoryMock } from '../infrastructure/layout-repository-mock';
 
 
-describe('HomeComponent', () => {
+describe('LayoutComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -19,15 +19,15 @@ describe('HomeComponent', () => {
         BrowserAnimationsModule,
         HeaderComponent
       ],
-      declarations: [HomeComponent],
+      declarations: [LayoutComponent],
       providers: [
-        { provide: HomeRepository, useClass: HomeRepositoryMock},
+        { provide: LayoutRepository, useClass: LayoutRepositoryMock},
       ],
     }).compileComponents();
   });
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(HomeComponent);
+    const fixture = TestBed.createComponent(LayoutComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });

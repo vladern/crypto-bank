@@ -9,19 +9,22 @@ const accounts: Account[] = [
     { id: 14, name: 'Test2', category: 'Affiliates', tags: 'test', balance: 3, availableBalance: 1000 },
     { id: 15, name: 'Test3', category: 'Affiliates', tags: 'test', balance: 4, availableBalance: 1000 },
     { id: 16, name: 'Test4', category: 'Affiliates', tags: 'test', balance: 5, availableBalance: 1000 },
-    { id: 17, name: 'Test5', category: 'Affiliates', tags: 'test', balance: 6, availableBalance: 1000 },{ id: 12, name: 'Test', category: 'Affiliates', tags: 'test', balance: 1, availableBalance: 1000 },
-    { id: 18, name: 'Test1', category: 'Affiliates', tags: 'test', balance: 2, availableBalance: 1000 },
-    { id: 19, name: 'Test2', category: 'Affiliates', tags: 'test', balance: 3, availableBalance: 1000 },
-    { id: 20, name: 'Test3', category: 'Affiliates', tags: 'test', balance: 4, availableBalance: 1000 },
-    { id: 21, name: 'Test4', category: 'Affiliates', tags: 'test', balance: 5, availableBalance: 1000 },
-    { id: 22, name: 'Test5', category: 'Affiliates', tags: 'test', balance: 6, availableBalance: 1000 },
+    { id: 17, name: 'Test5', category: 'Affiliates', tags: 'test', balance: 6, availableBalance: 1000 },
+    { id: 18, name: 'Test6', category: 'Affiliates', tags: 'test', balance: 2, availableBalance: 1000 },
+    { id: 19, name: 'Test7', category: 'Affiliates', tags: 'test', balance: 3, availableBalance: 1000 },
+    { id: 20, name: 'Test8', category: 'Affiliates', tags: 'test', balance: 4, availableBalance: 1000 },
+    { id: 21, name: 'Test9', category: 'Affiliates', tags: 'test', balance: 5, availableBalance: 1000 },
+    { id: 22, name: 'Test10', category: 'Affiliates', tags: 'test', balance: 6, availableBalance: 1000 },
 ];
 
 @Injectable()
 export class AccountRepositoryMock implements AccountsRepository {
     public getAccounts(): Observable<Account[]> {
         return new Observable<Account[]>((observer) => {
-            observer.next(accounts);
+            setTimeout(() => {
+                observer.next(accounts);
+                observer.complete();
+            }, 100);
         });
     }
     public onSomeAcountChanges(): Observable<Account> {
