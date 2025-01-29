@@ -3,7 +3,7 @@ import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '@shared/components/index';
 import { LayoutRepository } from './domain/layout-repository';
-import { HomeRepositorySocketIO } from './infrastructure/home-repository-socket-io/home-repository-socket-io';
+import { LayoutRepositoryMock } from './infrastructure/layout-repository-mock';
 import { LayoutComponent } from './application/layout.component';
 
 const routes: Routes = [
@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'account', pathMatch: 'full' },
 ];
 
-const config: SocketIoConfig = { url: 'wss://stream.binance.com:9443', options: {} };
+const config: SocketIoConfig = { url: 'http://localhost:81', options: {} };
 
 @NgModule({
   imports: [
@@ -26,7 +26,7 @@ const config: SocketIoConfig = { url: 'wss://stream.binance.com:9443', options: 
   ],
   declarations: [LayoutComponent],
   providers: [
-    { provide: LayoutRepository, useClass: HomeRepositorySocketIO },
+    { provide: LayoutRepository, useClass: LayoutRepositoryMock },
   ],
 })
 export class LayoutModule { }
