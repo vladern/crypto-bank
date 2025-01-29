@@ -4,7 +4,7 @@ import { LayoutRepository } from '../../domain/layout-repository';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class HomeRepositorySocketIO extends LayoutRepository {
+export class LayoutRepositorySocketIO extends LayoutRepository {
 
   constructor(private socket: Socket) {
     super();

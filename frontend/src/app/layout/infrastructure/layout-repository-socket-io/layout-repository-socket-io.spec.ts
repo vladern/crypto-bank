@@ -1,21 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { Socket } from 'ngx-socket-io';
-import { HomeRepositorySocketIO } from './home-repository-socket-io';
+import { LayoutRepositorySocketIO } from './layout-repository-socket-io';
 import { Observable } from 'rxjs';
 
 const socketMock = jasmine.createSpyObj('Socket', ['fromEvent']);
 
 describe('HomeRepositorySocketIO', () => {
-  let repository: HomeRepositorySocketIO;
+  let repository: LayoutRepositorySocketIO;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [
-        HomeRepositorySocketIO,
+        LayoutRepositorySocketIO,
         { provide: Socket, useValue: socketMock }
       ]
     });
-    repository = TestBed.inject(HomeRepositorySocketIO);
+    repository = TestBed.inject(LayoutRepositorySocketIO);
   });
 
   it('should be created', () => {
