@@ -2,7 +2,7 @@
     <button class="menu-button" mat-icon-button color="primary" aria-label="Menu button">
         <mat-icon>menu</mat-icon>
     </button>
-    <span class="qa-exchange-rate">
+    <span class="qa-exchange-rate" [appHighlightChange]="btcPrice | async">
         1 ₿
         :
         {{btcPrice | async | currency : 'USD' : 'symbol' : '1.2-2'}} USDT
