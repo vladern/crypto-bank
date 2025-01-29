@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  graphqlApiURL: 'http://localhost:3333/graphql'
+  graphqlApiURL: 'http://localhost:3333/graphql',
+  binanceWSURL: 'wss://stream.binance.com:9443/ws/btcusdt@trade'
 };
 
 /*

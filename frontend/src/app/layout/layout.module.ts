@@ -3,8 +3,8 @@ import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from '@shared/components/index';
 import { LayoutRepository } from './domain/layout-repository';
-import { LayoutRepositoryMock } from './infrastructure/layout-repository-mock';
 import { LayoutComponent } from './application/layout.component';
+import { LayoutRepositoryWebsocket } from './infrastructure/layout-repository-websocket/layout-repository-websocket';
 
 const routes: Routes = [
   {
@@ -26,7 +26,7 @@ const config: SocketIoConfig = { url: 'http://localhost:81', options: {} };
   ],
   declarations: [LayoutComponent],
   providers: [
-    { provide: LayoutRepository, useClass: LayoutRepositoryMock },
+    { provide: LayoutRepository, useClass: LayoutRepositoryWebsocket },
   ],
 })
 export class LayoutModule { }
