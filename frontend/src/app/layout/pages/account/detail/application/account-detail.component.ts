@@ -17,7 +17,6 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     public accountDetails: AccountDetails;
     public columns: TableColumn[] = [];
     public exchangeRate = 0;
-    private accountDetailsId: number;
     private subscriptions: Subscription[] = [];
     @ViewChild('btcTemplate') btcTemplate: TemplateRef<unknown>;
     @ViewChild('dateTime') dateTimeTemplate: TemplateRef<unknown>;
@@ -30,11 +29,11 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit, OnDestroy
     ) { }
 
     ngOnInit(): void {
-        this.accountDetailsId = this.activatedRoute.snapshot.params.id;
-        this.getAccountDetails();
-        this.getAllTransactions();
+        const accountDetailsId = this.activatedRoute.snapshot.params.id;
+        this.getAccountDetails(accountDetailsId);
+        this.getAllTransactions(accountDetailsId);
         this.subscribeToExchangeRateChanges();
-        this.subscribeToTransactionChanges();
+        this.subscribeToTransactionChanges(accountDetailsId);
     }
 
     ngAfterViewInit() {
@@ -65,8 +64,8 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         }));
     }
 
-    private subscribeToTransactionChanges() {
-        this.subscriptions.push(this.accountDetailsRepository.onChangeSomeTransactionOf(this.accountDetailsId).subscribe((transaction) => {
+    private subscribeToTransactionChanges(accountDetailsId: number) {
+        this.subscriptions.push(this.accountDetailsRepository.onChangeSomeTransactionOf(accountDetailsId).subscribe((transaction) => {
             const transactionIndex = this.data.findIndex((transactionItem) => transactionItem.orderCode === transaction.orderCode);
             if (transactionIndex !== -1) {
                 this.data[transactionIndex].balance = transaction.balance;
@@ -76,15 +75,15 @@ export class AccountDetailsComponent implements OnInit, AfterViewInit, OnDestroy
         }));
     }
 
-    private getAccountDetails() {
-        this.subscriptions.push(this.accountDetailsRepository.getAccountDetails(this.accountDetailsId).subscribe((accountDetails) => {
+    private getAccountDetails(accountDetailsId: number) {
+        this.subscriptions.push(this.accountDetailsRepository.getAccountDetails(accountDetailsId).subscribe((accountDetails) => {
             this.accountDetails = accountDetails;
             this.cd.detectChanges();
         }));
     }
 
-    private getAllTransactions() {
-        this.subscriptions.push(this.accountDetailsRepository.getAllTransactions(this.accountDetailsId).subscribe((transactions) => {
+    private getAllTransactions(accountDetailsId: number) {
+        this.subscriptions.push(this.accountDetailsRepository.getAllTransactions(accountDetailsId).subscribe((transactions) => {
             this.data = transactions;
             this.cd.detectChanges();
         }));
