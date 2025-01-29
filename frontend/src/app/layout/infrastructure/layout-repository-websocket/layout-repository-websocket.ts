@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { LayoutRepository } from '../../domain/layout-repository';
 import { Observable } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -18,6 +19,8 @@ export class LayoutRepositoryWebsocket extends LayoutRepository {
                 observer.next(parseFloat(data.p));
             };
             return () => binanceWS.close();
-        });
+        }).pipe(
+            throttleTime(3000)
+        );
     }
 }
