@@ -22,3 +22,15 @@
 [NX Daemon Server] - 2025-01-29T22:15:03.947Z - [WATCHER]: Stopping the watcher for C:\Users\plakaplaka\Desktop\crypto-bank\frontend (sources)
 [NX Daemon Server] - 2025-01-29T22:15:03.947Z - [WATCHER]: Stopping the watcher for C:\Users\plakaplaka\Desktop\crypto-bank\frontend (outputs)
 [NX Daemon Server] - 2025-01-29T22:15:03.949Z - Server stopped because: "Request to shutdown"
+[NX Daemon Server] - 2025-02-01T21:23:06.194Z - Started listening on: \\.\pipe\nx\C:\Users\vladernn\AppData\Local\Temp\070ba596b7227dcb7c16\d.sock
+[NX Daemon Server] - 2025-02-01T21:23:06.683Z - [WATCHER]: Subscribed to changes within: C:\Users\vladernn\Desktop\crypto-bank\frontend (native)
+[NX Daemon Server] - 2025-02-01T21:23:06.688Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-01T21:23:06.689Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-02-01T21:23:06.692Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-02-01T21:23:06.697Z - [REQUEST]: Responding to the client. Shutdown initiated
+[NX Daemon Server] - 2025-02-01T21:23:06.698Z - Done responding to the client Shutdown initiated
+[NX Daemon Server] - 2025-02-01T21:23:06.698Z - Handled FORCE_SHUTDOWN. Handling time: 0. Response time: 2.
+[NX Daemon Server] - 2025-02-01T21:23:06.699Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-02-01T21:23:06.701Z - [WATCHER]: Stopping the watcher for C:\Users\vladernn\Desktop\crypto-bank\frontend (sources)
+[NX Daemon Server] - 2025-02-01T21:23:06.702Z - [WATCHER]: Stopping the watcher for C:\Users\vladernn\Desktop\crypto-bank\frontend (outputs)
+[NX Daemon Server] - 2025-02-01T21:23:06.703Z - Server stopped because: "Request to shutdown"
