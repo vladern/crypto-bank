@@ -13,6 +13,12 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/account/account.module').then((m) => m.AccountModule),
   },
+  {
+    path: 'dashboard',
+    component: LayoutComponent,
+    loadChildren: () =>
+      import('./pages/dashboard/application/dashboard.routes').then((m) => m.DashboardRoutes),
+  },
   { path: '', redirectTo: 'account', pathMatch: 'full' },
 ];
 
