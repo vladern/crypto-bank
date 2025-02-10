@@ -9,7 +9,7 @@ import { DashboardRoutes } from './dashboard.routes';
   standalone: true,
   imports: [LineChartComponent, CommonModule, RouterModule],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.css'
+  styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
   btcHistoryData = signal<{ date: Date; price: number }[]>([
