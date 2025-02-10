@@ -7,7 +7,7 @@
   "prefix": "app",
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
+      "executor": "@angular-devkit/build-angular:browser-esbuild",
       "options": {
         "outputPath": "dist/frontend",
         "index": "src/index.html",
